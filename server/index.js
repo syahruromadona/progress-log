@@ -40,7 +40,7 @@ app.get("/todos", async (req,res) => {
         const allTodos = await pool.query("SELECT * FROM todo")
         res.json(allTodos.rows);
     } catch (error) {
-        console.log(error.message)
+        console.error("DB error:", error)
         res.status(500).json({ error: "Internal Server Error" });
     }
 })
