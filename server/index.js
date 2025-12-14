@@ -8,7 +8,9 @@ dotenv.config()
 const PORT = process.env.PORT || 5000;
 
 //middleware
-app.use(cors())
+app.use(cors({
+  origin:"https://frontend-z8tx.onrender.com/"
+}))
 app.use(express.json())
 
 //ROUTES
