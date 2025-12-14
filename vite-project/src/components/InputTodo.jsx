@@ -18,6 +18,7 @@ const InputTodo = () => {
             
         } catch (error) {
             console.log(error.message)
+            setError("Failed to add todos. Please try again later.");
         }
     }
 

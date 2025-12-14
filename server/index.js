@@ -29,6 +29,7 @@ app.post("/todos", async (req, res) => {
     res.json(newTodo.rows[0]);
   } catch (err) {
     console.error(err.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -40,6 +41,7 @@ app.get("/todos", async (req,res) => {
         res.json(allTodos.rows);
     } catch (error) {
         console.log(error.message)
+        res.status(500).json({ error: "Internal Server Error" });
     }
 })
 
@@ -55,6 +57,7 @@ app.get("/todos/:id", async (req, res) => {
     res.json(todo.rows[0]);
   } catch (err) {
     console.error(err.message);
+    res.status(500).json({ error: "Internal Server Error" });
   }
 });
 
@@ -71,6 +74,7 @@ app.put("/todos/:id", async (req,res) => {
         res.json("Settel");
     } catch (error) {
         console.log(error.message)
+        res.status(500).json({ error: "Internal Server Error" });
     }
 });
 
@@ -86,8 +90,11 @@ app.delete("/todos/:id", async (req,res) => {
         res.json("Deleted")
     } catch (error) {
         console.log(error.message);
+        res.status(500).json({ error: "Internal Server Error" });
     }
 });
+
+app.get("/", (req, res) => res.send("API running"));
 
 app.listen (PORT, () => {
     console.log(`Server has started at port ${PORT}`);

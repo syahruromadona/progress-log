@@ -17,6 +17,7 @@ const EditTodo = ({ todo }) => {
             window.location = "/";
         } catch (error) {
             console.log(error.message)
+            setError("Failed to edit todos. Please try again later.");
         }
     }
 

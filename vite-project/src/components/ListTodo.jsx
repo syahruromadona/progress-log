@@ -15,6 +15,7 @@ const ListTodo = ()=> {
             setTodos(todos.filter(todo => todo.todo_id !== id));
         } catch (error) {
             console.log(error.message)
+            setError("Failed to delete todos. Please try again later.");
         }
     }
     
@@ -28,6 +29,7 @@ const ListTodo = ()=> {
 
         } catch (error) {
             console.log(error.message)
+            setError("Failed to fetch todos. Please try again later.");
         }
     }
 
