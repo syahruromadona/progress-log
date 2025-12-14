@@ -29,7 +29,7 @@ app.post("/todos", async (req, res) => {
     res.json(newTodo.rows[0]);
   } catch (error) {
     console.error("DB /todos POST error:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error from post" });
   }
 });
 
@@ -41,7 +41,7 @@ app.get("/todos", async (req,res) => {
         res.json(allTodos.rows);
     } catch (error) {
         console.error("DB error:", error)
-        res.status(500).json({ error: "Internal Server Error" });
+        res.status(500).json({ error: "Internal Server Error from get" });
     }
 })
 
@@ -57,7 +57,7 @@ app.get("/todos/:id", async (req, res) => {
     res.json(todo.rows[0]);
   } catch (error) {
     console.error("DB /todos POST error:", error);
-    res.status(500).json({ error: "Internal Server Error" });
+    res.status(500).json({ error: "Internal Server Error get a todo" });
   }
 });
 
@@ -74,7 +74,7 @@ app.put("/todos/:id", async (req,res) => {
         res.json("Settel");
     } catch (error) {
         console.error("DB /todos POST error:", error);
-        res.status(500).json({ error: "Internal Server Error" });
+        res.status(500).json({ error: "Internal Server Error put a todo" });
     }
 });
 
@@ -90,7 +90,7 @@ app.delete("/todos/:id", async (req,res) => {
         res.json("Deleted")
     } catch (error) {
         console.error("DB /todos POST error:", error);
-        res.status(500).json({ error: "Internal Server Error" });
+        res.status(500).json({ error: "Internal Server Error delete a todo" });
     }
 });
 
