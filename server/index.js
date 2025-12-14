@@ -27,8 +27,8 @@ app.post("/todos", async (req, res) => {
     );
     console.log("New todo added")
     res.json(newTodo.rows[0]);
-  } catch (err) {
-    console.error(err.message);
+  } catch (error) {
+    console.error("DB /todos POST error:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -55,8 +55,8 @@ app.get("/todos/:id", async (req, res) => {
     ]);
 
     res.json(todo.rows[0]);
-  } catch (err) {
-    console.error(err.message);
+  } catch (error) {
+    console.error("DB /todos POST error:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -73,7 +73,7 @@ app.put("/todos/:id", async (req,res) => {
 
         res.json("Settel");
     } catch (error) {
-        console.log(error.message)
+        console.error("DB /todos POST error:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
@@ -89,7 +89,7 @@ app.delete("/todos/:id", async (req,res) => {
 
         res.json("Deleted")
     } catch (error) {
-        console.log(error.message);
+        console.error("DB /todos POST error:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 });
