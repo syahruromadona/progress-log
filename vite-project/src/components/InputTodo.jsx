@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { API_URL } from "..api.js";
+import { API_URL } from "../api.js";
 
 const InputTodo = () => {
     
